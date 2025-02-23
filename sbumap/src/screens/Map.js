@@ -36,7 +36,11 @@ const Map = () => {
     }
   };
 
-  const handleZoom = () => {
+  const handleZoom = (event) => {
+    // Prevent zooming when clicking on the menu
+    if (event.target.closest('.menu')) {
+      return;
+    }
     setIsZoomed(!isZoomed);
   };
 
@@ -58,7 +62,7 @@ const Map = () => {
 
   return (
     <div className="container">
-      <div className={`menu ${isZoomed ? 'zoomed' : ''}`}>
+      <div className="menu"> {/* Removed the zoomed class toggle */}
         <h3 className="filter-title">Filter Tool</h3>
         <div className={`filter-box ${showTypeFilter ? 'show' : ''}`}>
           <h4 onClick={() => setShowTypeFilter(!showTypeFilter)}>
