@@ -89,7 +89,7 @@ const Home = () => {
           <div className="modal-content sbu-modal">
             <span className="close-button" onClick={handleCloseModal}>&times;</span>
             <h2>{selectedBuilding.buildingName}</h2>
-            <NavLink to={`/map/${selectedBuilding.buildingName.toLowerCase()}`} className="building-link">
+            <NavLink to={`/${selectedBuilding.buildingName.toLowerCase()}`} className="building-link">
               <h2 className="building-name">{selectedBuilding.buildingName} Discussion Board</h2>
             </NavLink>
             <p>Type: {selectedBuilding.buildingType}</p>

@@ -93,3 +93,13 @@ img {
 img:hover {
   transform: scale(1.1);
 }
+
+.purple-button {
+  padding: 8px 12px;
+  background-color: #652d90;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}

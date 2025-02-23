@@ -38,7 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/map" element={<Map />} />
-            <Route path="/map/:buildingId" element={<BuildingScreen />} />
+            <Route path="/:buildingId" element={<BuildingScreen />} />
             <Route path="/student-request" element={<StudentRequest />} />
           </Routes>
         </div>
