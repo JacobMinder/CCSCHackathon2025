@@ -104,7 +104,7 @@ const StudentRequest = () => {
       console.error('Error updating data:', error);
     });
   };
-  
+
   const isFormValid = formData.building && formData.day && formData.door && formData.userType && formData.unlocked !== null;
 
   return (
@@ -127,7 +127,6 @@ const StudentRequest = () => {
             ))}
           </select>
         </div>
-        <hr />
         <div>
           <label>Day:</label>
           <select
@@ -145,7 +144,6 @@ const StudentRequest = () => {
             ))}
           </select>
         </div>
-        <hr />
         <div>
           <label>Door:</label>
           <select
@@ -164,7 +162,6 @@ const StudentRequest = () => {
             ))}
           </select>
         </div>
-        <hr />
         <div>
           <label>User Type:</label>
           <select
@@ -181,12 +178,12 @@ const StudentRequest = () => {
         </div>
         <hr />
         <div>
-          <label>
+          <label >
             <img
               src={formData.unlocked ? unlockedImage : lockedImage}
               alt={formData.unlocked ? 'Unlocked' : 'Locked'}
               onClick={handleImageClick}
-              style={{ cursor: 'pointer', width: '50px', height: '50px' }}
+              style={{ width: '50px', height: '50px' }}
             />
             <input
               type="text"
@@ -194,11 +191,9 @@ const StudentRequest = () => {
               value={formData.note}
               onChange={handleChange}
               placeholder="Add a note"
-              style={{ marginLeft: '10px' }}
             />
           </label>
         </div>
-        <hr />
         <button type="submit" disabled={!isFormValid}>Submit</button>
       </form>
       {message && <p className="message">{message}</p>}
