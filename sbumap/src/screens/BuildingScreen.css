@@ -1,0 +1,38 @@
+.view-building-container {
+  display: flex;
+  height: 100vh;
+}
+
+.side-panel {
+  width: 40%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  color: blue;
+}
+.door-dropdown {
+  overflow-y: auto;
+}
+
+.building-details {
+  width: 60%;
+  padding: 20px;
+}
+
+.dropdown {
+  margin-bottom: 10px;
+}
+
+.dropdown-title {
+  cursor: pointer;
+  background-color: #ccc;
+  padding: 10px;
+  border: 1px solid #aaa;
+}
+
+.dropdown-content {
+  padding: 10px;
+  
+  border: 1px solid #aaa;
+}

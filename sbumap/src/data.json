@@ -1,0 +1,72 @@
+[
+  {
+    "buildingName": "Taylor",
+    "top": "67%",
+    "left": "54%",
+    "height": "9%",
+    "width": "9%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "Weekdays",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "West Door",
+            "openGeneralTime": "7:00 PM",
+            "closedGeneralTime": "4:00 PM",
+            "openStudentTime": "8:00 AM",
+            "closedStudentTime": "11:00 PM"
+          }
+        ]
+      },
+      {
+        "days": "Weekend",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "1:30 AM",
+            "closedGeneralTime": "4:00 PM",
+            "openStudentTime": "11:30 AM",
+            "closedStudentTime": "12:00 PM"
+          },
+          {
+            "doorName": "West Door",
+            "openGeneralTime": "1:00 PM",
+            "closedGeneralTime": "1:00 PM",
+            "openStudentTime": "1:00 AM",
+            "closedStudentTime": "1:00 PM"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "buildingName": "AnotherBuilding",
+    "top": "50%",
+    "left": "60%",
+    "height": "10%",
+    "width": "10%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "Weekdays",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          }
+        ]
+      }
+    ]
+  }
+]
