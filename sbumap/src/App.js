@@ -5,6 +5,7 @@ import Home from './screens/Home';
 import Map from './screens/Map';
 import BuildingScreen from './screens/BuildingScreen';
 import StudentRequest from './screens/StudentRequest';
+import DiscussionBoards from './screens/DiscussionBoards';
 
 function App() {
   return (
@@ -33,18 +34,10 @@ function App() {
               </li>
               <li>
                 <NavLink
-                  to="/landen hall"
+                  to="/DiscussionBoards"
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
-                  Landen Hall
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/taylor"
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  Taylor
+                  Discussion Boards
                 </NavLink>
               </li>
             </ul>
@@ -56,6 +49,7 @@ function App() {
             <Route path="/map" element={<Map />} />
             <Route path="/:buildingId" element={<BuildingScreen />} />
             <Route path="/student-request" element={<StudentRequest />} />
+            <Route path="/DiscussionBoards" element={<DiscussionBoards />} />
           </Routes>
         </div>
       </div>
