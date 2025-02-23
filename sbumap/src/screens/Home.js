@@ -106,6 +106,13 @@ const Home = () => {
                             <p>General Close Time: {group.doors[doorIndex].closedGeneralTime}</p>
                             <p>Student Open Time: {group.doors[doorIndex].openStudentTime}</p>
                             <p>Student Close Time: {group.doors[doorIndex].closedStudentTime}</p>
+                            {group.doors[doorIndex].studentMessage && (
+                              <div className="student-message">
+                                <p><strong>Note:</strong> {group.doors[doorIndex].studentMessage.note}</p>
+                                <p><strong>Time:</strong> {group.doors[doorIndex].studentMessage.time}</p>
+                                <p><strong>User Type:</strong> {group.doors[doorIndex].studentMessage.userType}</p>
+                              </div>
+                            )}
                           </td>
                         ))}
                     </tr>
