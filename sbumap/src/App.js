@@ -31,6 +31,22 @@ function App() {
                   Student Request
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/map/landen hall"
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  Landen Hall
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/map/taylor"
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  Taylor
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </header>
