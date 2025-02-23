@@ -41,6 +41,11 @@ const BuildingScreen = () => {
     }
   };
 
+  const handleClearMessages = () => {
+    setMessages([]);
+    localStorage.removeItem(`${buildingId}-messages`);
+  };
+
   if (!building) {
     return <div>Building not found</div>;
   }
@@ -74,7 +79,7 @@ const BuildingScreen = () => {
       <div className="building-details">
         <h1>{building.buildingName}</h1>
         <p>{building.description}</p>
-        <img src={require(`${building.image}`)} alt={`${building.buildingName} image`} />
+        <img src={require(`${building.image}`)} alt={`${building.buildingName} image`} style={{pointerEvents: 'none'}} />
 
         <div className="message-board">
           <h2>Discussion Board</h2>
@@ -94,6 +99,7 @@ const BuildingScreen = () => {
             style={{ width: '100%', boxSizing: 'border-box', height: '60px' }}
           ></textarea>
           <button className="post-button" onClick={handlePostMessage}>Post</button>
+          <button className="clear-button" onClick={handleClearMessages}>Clear</button>
           <div style={{textAlign: 'right', fontSize: '12px', color: '#555'}}>
             Word count: {newMessage.trim().split(/\s+/).length}/50
           </div>
