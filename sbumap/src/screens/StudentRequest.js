@@ -9,6 +9,7 @@ const StudentRequest = () => {
   const [formData, setFormData] = useState({
     building: '',
     day: '',
+    time: '', // Add time to formData
     door: '',
     userType: '',
     unlocked: false,
@@ -22,15 +23,16 @@ const StudentRequest = () => {
 
   const availableBuildings = data.map(building => building.buildingName);
   const selectedBuilding = data.find(building => building.buildingName === formData.building);
-  const availableDays = selectedBuilding ? selectedBuilding.groupDays.map(group => group.days) : [];
-  const availableDoors = selectedBuilding && formData.day ? selectedBuilding.groupDays.find(group => group.days === formData.day).doors : [];
+  const availableDoors = selectedBuilding && formData.day ? selectedBuilding.groupDays.find(group => group.days === formData.day)?.doors || [] : [];
+
+  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Weekdays", "Weekend"];
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: type === 'checkbox' ? checked : value,
-      ...(name === 'building' && { day: '', door: '', userType: '' }) // Reset day, door, and userType if building changes
+      ...(name === 'building' && { day: '', door: '', userType: '', time: '' }) // Reset day, door, userType, and time if building changes
     }));
   };
 
@@ -40,7 +42,8 @@ const StudentRequest = () => {
     if (wordCount <= 50 && newMessage.trim() !== '') {
       const updatedMessages = [
         { 
-          text: formData.note + "\n", 
+          text: `Under ${formData.userType} permissions, the ${formData.door} for ${formData.building} was ${formData.unlocked ? "unlocked" : "locked"} on ${formData.day} at ${formData.time}.
+Note: ${formData.note}`,
           author: formData.name || "Anonymous", 
           timestamp: new Date().toLocaleString(), 
           color: formData.unlocked ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 0, 0, 0.5)' // Transparent green or red
@@ -75,6 +78,7 @@ const StudentRequest = () => {
     setFormData({
       building: '',
       day: '',
+      time: '', // Reset time
       door: '',
       userType: '',
       unlocked: false,
@@ -86,7 +90,7 @@ const StudentRequest = () => {
     // Hide message after 3 seconds
     setTimeout(() => setMessage(''), 3000);
     // Navigate to the building's discussion board
-    navigate(`/map/${formData.building.toLowerCase()}`);
+    navigate(`/${formData.building.toLowerCase()}`);
   };
 
   const updateLocalStorage = (newData) => {
@@ -98,14 +102,33 @@ const StudentRequest = () => {
         author: newData.userType,
         timestamp: currentTime,
         unlocked: newData.unlocked,
-        name: newData.name // Add name to the message
+        name: newData.name, // Add name to the message
+        time: newData.time // Add time to the message
       },
       ...storedMessages
     ];
     localStorage.setItem(`${newData.building}-messages`, JSON.stringify(updatedMessages));
   };
 
-  const isFormValid = formData.building && formData.day && formData.door && formData.userType && formData.unlocked !== null;
+  const isFormValid = formData.building && formData.day && formData.time && formData.door && formData.userType && formData.unlocked !== null;
+
+  const setCurrentDay = () => {
+    const now = new Date();
+    const currentDay = weekdays[now.getDay()];
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      day: currentDay
+    }));
+  };
+
+  const setCurrentTime = () => {
+    const now = new Date();
+    const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // Format time as HH:MM
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      time: currentTime
+    }));
+  };
 
   return (
     <div>
@@ -127,6 +150,10 @@ const StudentRequest = () => {
             ))}
           </select>
         </div>
+        <div className="buttons-container">
+          <button type="button" className="purple-button" onClick={setCurrentDay}>Get Current Day</button>
+          <button type="button" className="purple-button" onClick={setCurrentTime}>Get Current Time</button>
+        </div>
         <div>
           <label>Day:</label>
           <select
@@ -137,12 +164,23 @@ const StudentRequest = () => {
             disabled={!formData.building}
           >
             <option value="" disabled>Select a day</option>
-            {availableDays.map((day) => (
+            {weekdays.map((day) => (
               <option key={day} value={day}>
                 {day}
               </option>
             ))}
           </select>
+        </div>
+        <div>
+          <label>Time:</label>
+          <input
+            type="time"
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            required
+            disabled={!formData.day}
+          />
         </div>
         <div>
           <label>Door:</label>
@@ -151,7 +189,7 @@ const StudentRequest = () => {
             value={formData.door}
             onChange={handleChange}
             required
-            disabled={!formData.day}
+            disabled={!formData.time}
           >
             <option value="" disabled>Select a door</option>
             <option value="All doors">All doors</option>

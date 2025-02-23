@@ -130,7 +130,7 @@ const Map = () => {
           .map((building, index) => (
             <Building
               key={index}
-              route={`/map/${building.buildingName.toLowerCase()}`}
+              route={`/${building.buildingName.toLowerCase()}`}
               style={{
                 top: building.top,
                 left: building.left,
