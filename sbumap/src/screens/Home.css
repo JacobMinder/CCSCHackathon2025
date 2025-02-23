@@ -1,13 +1,153 @@
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f8f8f8;
+  flex-direction: column;
+  align-items: flex-start; /* Align items at the start */
+  padding: 20px;
+  width: 100%;
 }
 
-.title {
-  font-size: 24px;
+.filter-container {
+  display: flex;
+  justify-content: center; /* Center the filters horizontally */
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px; /* Add space between the filters */
+}
+
+.filter-group:last-child {
+  margin-right: 0; /* Remove margin from the last filter group */
+}
+
+.filter-group label {
+  margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+}
+
+.day-group-select,
+.building-type-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.building-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  overflow-y: auto;
+  max-height: 70vh; /* Adjust the height as needed */
+}
+
+.building-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  cursor: pointer; /* Add cursor pointer to indicate clickability */
+}
+
+.building-card:hover {
+  background-color: #e0e0e0; /* Add hover effect */
+}
+
+.building-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.building-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.building-type {
+  font-size: 14px;
+  color: #666;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+td h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+td p {
+  margin: 5px 0;
+  font-size: 14px;
 }

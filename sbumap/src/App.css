@@ -4,11 +4,14 @@
 /* Apply the font globally */
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0; /* Ensure there is no default margin */
+  padding: 0; /* Ensure there is no default padding */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Additional global styles can go here */
 .App {
   text-align: center;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .App-header {
