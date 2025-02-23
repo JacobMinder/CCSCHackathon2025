@@ -9,8 +9,34 @@
   margin-top: 1vh; /* Add margin to push the container below the header */
 }
 
+.image-container {
+  position: relative; /* Make the image container the relative container */
+  transition: all 0.3s ease-in-out;
+}
+
+.image-container.zoomed {
+  width: "100%";
+  margin-top: 143vh; /* Push the zoomed image down by 10vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .zoomable-image {
   max-width: 100%;
   height: 80vh;
   cursor: zoom-in;
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+.image-container.zoomed .zoomable-image {
+  width: 100vw;
+  height: auto; /* Maintain aspect ratio */
+  cursor: zoom-out;
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+.building {
+  position: absolute; /* Position buildings absolutely within the image */
+  background-color: rgba(255, 0, 0, 0.3);
 }

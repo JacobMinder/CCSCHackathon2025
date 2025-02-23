@@ -1,10 +1,11 @@
 [
   {
     "buildingName": "Taylor",
-    "top": "67%",
-    "left": "54%",
-    "height": "9%",
-    "width": "9%",
+    "buildingType": "Academic",
+    "top": "68%",
+    "left": "56%",
+    "height": "8%",
+    "width": "12%",
     "image": "./buildingImages/taylor.png",
     "groupDays": [
       {
@@ -48,11 +49,12 @@
     ]
   },
   {
-    "buildingName": "AnotherBuilding",
-    "top": "50%",
-    "left": "60%",
-    "height": "10%",
-    "width": "10%",
+    "buildingName": "Landen Hall",
+    "buildingType": "Dormitory",
+    "top": "68.5%",
+    "left": "22%",
+    "height": "8%",
+    "width": "9%",
     "image": "./buildingImages/taylor.png",
     "groupDays": [
       {
