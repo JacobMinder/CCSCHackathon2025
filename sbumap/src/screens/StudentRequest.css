@@ -1,3 +1,36 @@
+form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+form label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form select,
+form input[type="text"] {
+  width: 100%;
+  max-width: 300px; /* Set all dropdowns and input to the same width */
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form img {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+form button {
+  margin-top: 15px;
+}
+
 .message {
   position: fixed;
   bottom: 20px;
@@ -13,4 +46,50 @@
 
 .message.fade-out {
   opacity: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+select, input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+img {
+  transition: transform 0.2s;
+}
+
+img:hover {
+  transform: scale(1.1);
 }
