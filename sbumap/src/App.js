@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './screens/Home';
 import Map from './screens/Map';
@@ -14,23 +14,34 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link to="/map">Map</Link>
+                <NavLink to="/map" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Map
+                </NavLink>
               </li>
               <li>
-                <Link to="/student-request">Student Request</Link>
+                <NavLink
+                  to="/student-request"
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  Student Request
+                </NavLink>
               </li>
             </ul>
           </nav>
         </header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/map/:buildingId" element={<BuildingScreen />} />
-          <Route path="/student-request" element={<StudentRequest />} />
-        </Routes>
+        <div className="page">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/map/:buildingId" element={<BuildingScreen />} />
+            <Route path="/student-request" element={<StudentRequest />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

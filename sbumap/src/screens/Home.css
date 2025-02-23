@@ -1,59 +1,89 @@
-.container {
+/* General Container */
+.sbu-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items at the start */
+  align-items: center; /* Keep horizontal centering */
+  justify-content: flex-start; /* Align content to the top */
+  min-height: 100vh; /* Keep full viewport height */
   padding: 20px;
   width: 100%;
+  background-color: #f7f7f7; /* Light background */
+  text-align: center; /* Center text content */
 }
 
+/* Header */
+.sbu-header {
+  margin-bottom: 20px;
+  color: #4B0082; /* Deep purple for header */
+}
+
+.sbu-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.sbu-header p {
+  font-size: 18px;
+  color: #6a6a6a; /* Light grey for subtitle */
+}
+
+/* Filter Container */
 .filter-container {
   display: flex;
-  justify-content: center; /* Center the filters horizontally */
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Allows for wrapping of filter items */
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   margin-bottom: 20px;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  margin-right: 20px; /* Add space between the filters */
-}
-
-.filter-group:last-child {
-  margin-right: 0; /* Remove margin from the last filter group */
+  margin: 10px;
 }
 
 .filter-group label {
   margin-bottom: 5px;
   font-weight: bold;
+  color: #4B0082; /* Purple label color */
 }
 
 .day-group-select,
 .building-type-select {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #4B0082; /* Purple border */
   border-radius: 4px;
+  background-color: #fff; /* White background for select fields */
 }
 
+.day-group-select:focus,
+.building-type-select:focus {
+  outline: none;
+  border-color: #FFD700; /* Gold focus border */
+}
+
+/* Search Input */
 .search-input {
   width: 100%;
   max-width: 400px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #4B0082; /* Purple border */
   border-radius: 4px;
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
+/* Building List */
 .building-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   overflow-y: auto;
-  max-height: 70vh; /* Adjust the height as needed */
+  max-height: 70vh;
 }
 
 .building-card {
@@ -63,14 +93,15 @@
   width: 100%;
   padding: 20px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #4B0082; /* Purple border */
   border-radius: 8px;
   background-color: #f8f8f8;
-  cursor: pointer; /* Add cursor pointer to indicate clickability */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .building-card:hover {
-  background-color: #e0e0e0; /* Add hover effect */
+  background-color: #f0f0f0;
 }
 
 .building-image {
@@ -84,6 +115,8 @@
 .building-name {
   font-size: 18px;
   margin: 0;
+  font-weight: bold;
+  color: #4B0082; /* Purple text */
 }
 
 .building-type {
@@ -91,6 +124,7 @@
   color: #666;
 }
 
+/* Modal Styles */
 .modal {
   position: fixed;
   top: 0;
@@ -112,6 +146,7 @@
   max-height: 80%;
   overflow-y: auto;
   position: relative;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .close-button {
@@ -120,6 +155,7 @@
   right: 10px;
   font-size: 24px;
   cursor: pointer;
+  color: #4B0082; /* Purple close button */
 }
 
 .table-container {
@@ -132,7 +168,8 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: left;
@@ -150,4 +187,21 @@ td h4 {
 td p {
   margin: 5px 0;
   font-size: 14px;
+}
+
+/* Student Message Styling */
+.student-message {
+  background-color: #FFD700; /* Gold background for student message */
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.student-message p {
+  margin: 0;
+  color: #000;
+}
+
+.student-message strong {
+  color: #4B0082; /* Purple bold text */
 }

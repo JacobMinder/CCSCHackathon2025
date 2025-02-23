@@ -37,7 +37,12 @@ const Home = () => {
   );
 
   return (
-    <div className="container">
+    <div className="sbu-container">
+      <header className="sbu-header">
+        <h1>Southwest Baptist University Buildings</h1>
+        <p>Explore the campus with SBU's signature purple and gold theme.</p>
+      </header>
+
       <div className="filter-container">
         <div className="filter-group">
           <label htmlFor="day-group-select">Days</label>
@@ -60,6 +65,7 @@ const Home = () => {
           </select>
         </div>
       </div>
+
       <input
         type="text"
         placeholder="Search buildings..."
@@ -67,9 +73,10 @@ const Home = () => {
         onChange={handleSearchChange}
         className="search-input"
       />
+
       <div className="building-list">
         {filteredBuildings.map((building, index) => (
-          <div key={index} className="building-card" onClick={() => handleBuildingClick(building)}>
+          <div key={index} className="building-card sbu-card" onClick={() => handleBuildingClick(building)}>
             <h2 className="building-name">{building.buildingName}</h2>
             <p className="building-type">{building.buildingType}</p>
           </div>
@@ -78,11 +85,10 @@ const Home = () => {
 
       {selectedBuilding && (
         <div className="modal">
-          <div className="modal-content">
+          <div className="modal-content sbu-modal">
             <span className="close-button" onClick={handleCloseModal}>&times;</span>
             <h2>{selectedBuilding.buildingName}</h2>
             <p>Type: {selectedBuilding.buildingType}</p>
-            <img src={selectedBuilding.image} alt={selectedBuilding.buildingName} className="building-image" />
             <div className="table-container">
               <table>
                 <thead>
@@ -96,23 +102,16 @@ const Home = () => {
                 </thead>
                 <tbody>
                   {selectedBuilding.groupDays[0].doors.map((_, doorIndex) => (
-                    <tr key={doorIndex}>
+                    <tr key={doorIndex} className='pop-up-container'>
                       {selectedBuilding.groupDays
                         .filter((group) => selectedDayGroup === 'All' || group.days === selectedDayGroup)
                         .map((group, groupIndex) => (
-                          <td key={groupIndex}>
+                          <td key={groupIndex} className='table-cell'>
                             <h4>{group.doors[doorIndex].doorName}</h4>
                             <p>General Open Time: {group.doors[doorIndex].openGeneralTime}</p>
                             <p>General Close Time: {group.doors[doorIndex].closedGeneralTime}</p>
                             <p>Student Open Time: {group.doors[doorIndex].openStudentTime}</p>
                             <p>Student Close Time: {group.doors[doorIndex].closedStudentTime}</p>
-                            {group.doors[doorIndex].studentMessage && (
-                              <div className="student-message">
-                                <p><strong>Note:</strong> {group.doors[doorIndex].studentMessage.note}</p>
-                                <p><strong>Time:</strong> {group.doors[doorIndex].studentMessage.time}</p>
-                                <p><strong>User Type:</strong> {group.doors[doorIndex].studentMessage.userType}</p>
-                              </div>
-                            )}
                           </td>
                         ))}
                     </tr>

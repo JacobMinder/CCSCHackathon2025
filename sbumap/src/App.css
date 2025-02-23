@@ -1,17 +1,18 @@
 /* Import the font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Apply the font globally */
+/* Global styles */
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 0; /* Ensure there is no default margin */
-  padding: 0; /* Ensure there is no default padding */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #f9f9f9; /* Light background for better contrast */
 }
 
 .App {
   text-align: center;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 .App-header {
@@ -22,40 +23,54 @@ body {
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-color: #9f0ca9;
+  background-color: #652d90; /* Adjusted to a deeper purple */
   padding: 0 20px;
-}
-
-.App-link {
-  color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px; /* Increased gap to add more space between links */
   padding: 0;
   margin: 0;
 }
 
 nav ul li {
   display: inline;
+  position: relative;
+}
+
+nav ul li:not(:last-child)::after {
+  content: '|';
+  position: absolute;
+  right: -20px; /* Adjusted position to match the increased gap */
+  color: #ffffff;
 }
 
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+  padding-bottom: 5px;
 }
 
-nav ul li a:active {
-  color: #ffffff;
+nav ul li a:hover,
+nav ul li a.active {
+  color: #fcd34d; /* Gold highlight on hover for contrast */
+  border-bottom: 2px solid #fcd34d;
 }
 
-@keyframes App-logo-spin {
+/* Add a subtle fade-in animation for route changes */
+.page {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
