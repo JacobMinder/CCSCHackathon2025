@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import data from '../data.json';
 import lockedImage from '../images/locked.png'; // Add your locked image path
 import unlockedImage from '../images/unlocked.png'; // Add your unlocked image path
@@ -11,10 +12,13 @@ const StudentRequest = () => {
     door: '',
     userType: '',
     unlocked: false,
-    note: ''
+    note: '',
+    name: '' // Add name to formData
   });
 
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+  const [messages, setMessages] = useState([]);
 
   const availableBuildings = data.map(building => building.buildingName);
   const selectedBuilding = data.find(building => building.buildingName === formData.building);
@@ -30,6 +34,32 @@ const StudentRequest = () => {
     }));
   };
 
+  const handlePostMessage = () => {
+    const newMessage = formData.note;
+    const wordCount = newMessage.trim().split(/\s+/).length;
+    if (wordCount <= 50 && newMessage.trim() !== '') {
+      const updatedMessages = [
+        { 
+          text: formData.note + "\n", 
+          author: formData.name || "Anonymous", 
+          timestamp: new Date().toLocaleString(), 
+          color: formData.unlocked ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 0, 0, 0.5)' // Transparent green or red
+        },
+        ...messages
+      ];
+      setMessages(updatedMessages);
+      const existingMessages = JSON.parse(localStorage.getItem(`${formData.building.toLowerCase()}-messages`)) || [];
+      const newMessages = [...updatedMessages, ...existingMessages];
+      localStorage.setItem(`${formData.building.toLowerCase()}-messages`, JSON.stringify(newMessages));
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        note: ''
+      }));
+    } else if (wordCount > 50) {
+      alert("Your message must be 50 words or fewer.");
+    }
+  };
+
   const handleImageClick = () => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -39,8 +69,8 @@ const StudentRequest = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Assuming you have a function to update your JSON data
-    updateJsonData(formData);
+    // Update local storage with the new data
+    updateLocalStorage(formData);
     // Reset form
     setFormData({
       building: '',
@@ -48,61 +78,31 @@ const StudentRequest = () => {
       door: '',
       userType: '',
       unlocked: false,
-      note: ''
+      note: '',
+      name: '' // Reset name
     });
     // Display message
     setMessage('Note received and updated');
     // Hide message after 3 seconds
     setTimeout(() => setMessage(''), 3000);
+    // Navigate to the building's discussion board
+    navigate(`/map/${formData.building.toLowerCase()}`);
   };
 
-  const updateJsonData = (newData) => {
+  const updateLocalStorage = (newData) => {
     const currentTime = new Date().toLocaleString();
-    const updatedData = data.map(building => {
-      if (building.buildingName === newData.building) {
-        return {
-          ...building,
-          groupDays: building.groupDays.map(group => {
-            if (group.days === newData.day) {
-              return {
-                ...group,
-                doors: group.doors.map(door => {
-                  if (door.doorName === newData.door) {
-                    return {
-                      ...door,
-                      studentMessage: {
-                        note: newData.note,
-                        time: currentTime,
-                        userType: newData.userType
-                      }
-                    };
-                  }
-                  return door;
-                })
-              };
-            }
-            return group;
-          })
-        };
-      }
-      return building;
-    });
-  
-    // Send the updated data to the backend
-    fetch('http://localhost:3001/update-data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+    const storedMessages = JSON.parse(localStorage.getItem(`${newData.building}-messages`)) || [];
+    const updatedMessages = [
+      {
+        text: newData.note,
+        author: newData.userType,
+        timestamp: currentTime,
+        unlocked: newData.unlocked,
+        name: newData.name // Add name to the message
       },
-      body: JSON.stringify(updatedData)
-    })
-    .then(response => response.text())
-    .then(message => {
-      console.log(message);
-    })
-    .catch(error => {
-      console.error('Error updating data:', error);
-    });
+      ...storedMessages
+    ];
+    localStorage.setItem(`${newData.building}-messages`, JSON.stringify(updatedMessages));
   };
 
   const isFormValid = formData.building && formData.day && formData.door && formData.userType && formData.unlocked !== null;
@@ -178,7 +178,17 @@ const StudentRequest = () => {
         </div>
         <hr />
         <div>
-          <label >
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your name"
+          />
+        </div>
+        <div>
+          <label>
             <img
               src={formData.unlocked ? unlockedImage : lockedImage}
               alt={formData.unlocked ? 'Unlocked' : 'Locked'}
@@ -194,7 +204,7 @@ const StudentRequest = () => {
             />
           </label>
         </div>
-        <button type="submit" disabled={!isFormValid}>Submit</button>
+        <button onClick={handlePostMessage} type="submit" disabled={!isFormValid}>Submit</button>
       </form>
       {message && <p className="message">{message}</p>}
     </div>

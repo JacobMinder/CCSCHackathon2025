@@ -29,7 +29,7 @@ const BuildingScreen = () => {
     const wordCount = newMessage.trim().split(/\s+/).length;
     if (wordCount <= 50 && newMessage.trim() !== '') {
       const updatedMessages = [
-        { text: newMessage, author: author || "Anonymous", timestamp: new Date().toLocaleString() },
+        { text: newMessage, author: author || "Anonymous", timestamp: new Date().toLocaleString(), color: '#fff' },
         ...messages
       ];
       setMessages(updatedMessages);
@@ -100,7 +100,7 @@ const BuildingScreen = () => {
 
           <div className="messages" style={{marginTop: '10px'}}>
             {messages.map((msg, idx) => (
-              <div key={idx} className="discussion-message">
+              <div key={idx} className="discussion-message" style={{ backgroundColor: msg.color }}>
                 <div className="message-header">
                   <strong>{msg.author}</strong> <span className="timestamp">{msg.timestamp}</span>
                 </div>
