@@ -96,7 +96,7 @@
     "left": "43%",
     "height": "5%",
     "width": "8%",
-    "image": "./buildingImages/taylor.png",
+    "image": "./buildingImages/GottEdu.png",
     "groupDays": [
       {
         "days": "Weekdays",
@@ -131,7 +131,7 @@
     "left": "93%",
     "height": "12%",
     "width": "5%",
-    "image": "./buildingImages/taylor.png",
+    "image": "./buildingImages/Sells.png",
     "groupDays": [
       {
         "days": "Weekdays",
@@ -166,7 +166,7 @@
     "left": "63%",
     "height": "8%",
     "width": "15%",
-    "image": "./buildingImages/taylor.png",
+    "image": "./buildingImages/Wheeler.png",
     "groupDays": [
       {
         "days": "Weekdays",
@@ -222,8 +222,6 @@
       }
     ]
   },
-
-  
   {
     "buildingName": "Wellness Center",
     "buildingType": "Fitness",
@@ -231,7 +229,7 @@
     "left": "27%",
     "height": "20%",
     "width": "18%",
-    "image": "./buildingImages/taylor.png",
+    "image": "./buildingImages/Wellness.png",
     "groupDays": [
       {
         "days": "Weekdays",
@@ -322,7 +320,7 @@
     "left": "68%",
     "height": "5%",
     "width": "6%",
-    "image": "./buildingImages/taylor.png",
+    "image": "./buildingImages/Plaster.png",
     "groupDays": [
       {
         "days": "All days",
