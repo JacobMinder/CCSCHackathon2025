@@ -33,7 +33,7 @@ function App() {
               </li>
               <li>
                 <NavLink
-                  to="/map/landen hall"
+                  to="/landen hall"
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   Landen Hall
@@ -41,7 +41,7 @@ function App() {
               </li>
               <li>
                 <NavLink
-                  to="/map/taylor"
+                  to="/taylor"
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   Taylor
