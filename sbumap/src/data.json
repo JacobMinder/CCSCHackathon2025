@@ -224,7 +224,7 @@
   },
   {
     "buildingName": "Wellness Center",
-    "buildingType": "Fitness",
+    "buildingType": "Recreational",
     "top": "15%",
     "left": "27%",
     "height": "20%",
@@ -321,6 +321,310 @@
     "height": "5%",
     "width": "6%",
     "image": "./buildingImages/Plaster.png",
+    "groupDays": [
+      {
+        "days": "All days",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "Open for residents",
+            "closedStudentTime": "Open for residents"
+          },
+          {
+            "doorName": "East Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          },
+          {
+            "doorName": "West Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+           "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "buildingName": "Jester",
+    "buildingType": "Academic",
+    "top": "26.5%",
+    "left": "80%",
+    "height": "9%",
+    "width": "15%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "Weekdays",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "East Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "West Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          }
+        ]
+      },
+      {
+        "days": "Weekend",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "10:00 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "East Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "10:00 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "West Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "10:00 AM",
+            "closedStudentTime": "10:00 PM"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "buildingName": "Maybee",
+    "buildingType": "Other",
+    "top": "37%",
+    "left": "42%",
+    "height": "10%",
+    "width": "8%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "Weekdays",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "South Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "North Entrance",
+            "openGeneralTime": "7:30 AM",
+            "closedGeneralTime": "5:00 PM",
+            "openStudentTime": "7:30 AM",
+            "closedStudentTime": "10:00 PM"
+          }
+        ]
+      },
+      {
+        "days": "Weekend",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "10:00 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "South Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "10:00 AM",
+            "closedStudentTime": "10:00 PM"
+          },
+          {
+            "doorName": "North Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "10:00 AM",
+            "closedStudentTime": "10:00 PM"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "buildingName": "Landen Hall",
+    "buildingType": "Dormitory",
+    "top": "68.5%",
+    "left": "22%",
+    "height": "8%",
+    "width": "9%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "All days",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "Open for residents",
+            "closedStudentTime": "Open for residents"
+          },
+          {
+            "doorName": "South Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          },
+          {
+            "doorName": "East Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+           "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          }
+        ]
+      }
+    ]
+  }, 
+  {
+    "buildingName": "Beasley Hall",
+    "buildingType": "Dormitory",
+    "top": "1%",
+    "left": "24%",
+    "height": "3%",
+    "width": "11%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "All days",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "Open for residents",
+            "closedStudentTime": "Open for residents"
+          },
+          {
+            "doorName": "1st East Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          }
+        ]
+      }
+    ]
+  }, 
+  {
+    "buildingName": "Gott Hall",
+    "buildingType": "Dormitory",
+    "top": "81%",
+    "left": "62%",
+    "height": "9%",
+    "width": "10%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "All days",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "Open for residents",
+            "closedStudentTime": "Open for residents"
+          },
+          {
+            "doorName": "East Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          },
+          {
+            "doorName": "West Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+           "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "buildingName": "Leslie Hall",
+    "buildingType": "Dormitory",
+    "top": "10%",
+    "left": "23%",
+    "height": "8%",
+    "width": "10%",
+    "image": "./buildingImages/taylor.png",
+    "groupDays": [
+      {
+        "days": "All days",
+        "doors": [
+          {
+            "doorName": "Main Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "Open for residents",
+            "closedStudentTime": "Open for residents"
+          },
+          {
+            "doorName": "East Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+            "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          },
+          {
+            "doorName": "West Entrance",
+            "openGeneralTime": "Closed",
+            "closedGeneralTime": "Closed",
+           "openStudentTime": "5:00 AM for residents",
+            "closedStudentTime": "12:00 AM Open for residents"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "buildingName": "Meyer Hall",
+    "buildingType": "Dormitory",
+    "top": "78.5%",
+    "left": "76%",
+    "height": "5.75%",
+    "width": "6%",
+    "image": "./buildingImages/taylor.png",
     "groupDays": [
       {
         "days": "All days",

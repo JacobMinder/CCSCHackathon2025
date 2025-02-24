@@ -37,13 +37,12 @@ const Home = () => {
     (selectedBuildingType === 'All' || building.buildingType === selectedBuildingType)
   );
 
+  buildingData = buildingData.sort((a, b) => a.buildingName.localeCompare(b.buildingName));
   return (
     <div className="sbu-container">
       <header className="sbu-header">
         <h1>Southwest Baptist University Buildings</h1>
-        <p>Explore the campus with SBU's signature purple and gold theme.</p>
       </header>
-
       <div className="filter-container">
         <div className="filter-group">
           <label htmlFor="day-group-select">Days</label>
